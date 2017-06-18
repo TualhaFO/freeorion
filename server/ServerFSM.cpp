@@ -181,7 +181,6 @@ MessageEventBase::MessageEventBase(const Message& message, PlayerConnectionPtr& 
     m_player_connection(player_connection)
 {}
 
-
 ////////////////////////////////////////////////////////////
 // ServerFSM
 ////////////////////////////////////////////////////////////
@@ -243,7 +242,6 @@ void ServerFSM::HandleNonLobbyDisconnection(const Disconnection& d) {
         m_server.m_fsm->process_event(ShutdownServer());
     }
 }
-
 
 ////////////////////////////////////////////////////////////
 // Idle
@@ -682,7 +680,8 @@ sc::result MPLobby::react(const LobbyUpdate& msg) {
                 (m_lobby_data->m_monster_freq != incoming_lobby_data.m_monster_freq) ||
                 (m_lobby_data->m_native_freq != incoming_lobby_data.m_native_freq) ||
                 (m_lobby_data->m_ai_aggr != incoming_lobby_data.m_ai_aggr) ||
-                (m_lobby_data->m_new_game != incoming_lobby_data.m_new_game);
+                (m_lobby_data->m_new_game != incoming_lobby_data.m_new_game) ||
+                (m_lobby_data->m_game_rules != incoming_lobby_data.m_game_rules);
 
             if (player_setup_data_changed) {
                 if (m_lobby_data->m_players.size() != incoming_lobby_data.m_players.size()) {
@@ -716,6 +715,7 @@ sc::result MPLobby::react(const LobbyUpdate& msg) {
             m_lobby_data->m_monster_freq   = incoming_lobby_data.m_monster_freq;
             m_lobby_data->m_native_freq    = incoming_lobby_data.m_native_freq;
             m_lobby_data->m_ai_aggr        = incoming_lobby_data.m_ai_aggr;
+            m_lobby_data->m_game_rules     = incoming_lobby_data.m_game_rules;
 
             // directly configurable lobby data
             m_lobby_data->m_new_game       = incoming_lobby_data.m_new_game;
