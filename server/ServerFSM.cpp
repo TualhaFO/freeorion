@@ -1406,7 +1406,6 @@ sc::result WaitingForMPGameJoiners::react(const Error& msg) {
     return discard_event();
 }
 
-
 ////////////////////////////////////////////////////////////
 // PlayingGame
 ////////////////////////////////////////////////////////////
@@ -1506,7 +1505,6 @@ sc::result PlayingGame::react(const Error& msg) {
     }
     return discard_event();
 }
-
 
 ////////////////////////////////////////////////////////////
 // WaitingForTurnEnd
@@ -1649,7 +1647,6 @@ sc::result WaitingForTurnEnd::react(const CheckTurnEndConditions& c) {
 
     return discard_event();
 }
-
 
 ////////////////////////////////////////////////////////////
 // WaitingForTurnEndIdle
