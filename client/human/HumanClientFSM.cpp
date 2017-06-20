@@ -715,6 +715,8 @@ boost::statechart::result WaitingForGameStart::react(const GameStart& msg) {
     Client().SetEmpireID(empire_id);
     Client().SetCurrentTurn(current_turn);
 
+    GetGameRules().SetFromStrings(Client().GetGalaxySetupData().GetGameRules());
+
     Client().StartGame();
     std::swap(Client().Orders(), orders); // bring back orders planned in the current turn, they will be applied later, after some basic turn initialization
     if (loaded_game_data && ui_data_available)
