@@ -141,6 +141,7 @@
     (GalaxySpecialFrequency)                    \
     (GalaxyStarlaneFrequency)                   \
     (Gameplay_Description)                      \
+    (GameRule)                                  \
     (GasGiant)                                  \
     (General)
 
